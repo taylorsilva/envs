@@ -35,3 +35,9 @@ Other `systemctl` commands include:
 ## Configuring nginx
 
 All nginx configuration is under `/etc/nginx/`. The main config file is `nginx.conf`.
+
+There is a `nginx.conf` in this repo. You should link (`ln -s`) this file to `/etc/nginx/nginx.conf` to keep this repo up to date.
+
+```
+ln -s ./envs/raspberry-pi/nginx/nginx.conf /etc/nginx/nginx.conf
+```
