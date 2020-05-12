@@ -19,6 +19,13 @@ or
 $ sudo systemctl start nginx
 ```
 
+To restart:
+```
+$ sudo /etc/init.d/nginx reload
+or
+$ sudo systemctl restart nginx
+```
+
 Other `systemctl` commands include:
 * `stop`
 * `restart`
