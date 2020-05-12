@@ -36,13 +36,15 @@ Other `systemctl` commands include:
 
 All nginx configuration is under `/etc/nginx/`. The main config file is `nginx.conf`.
 
-There is a `nginx.conf` in this repo. You should link (`ln -s`) this file to `/etc/nginx/nginx.conf` to keep this repo up to date.
+There is a `jellyfin.conf` in this repo. You should create a hard link (`ln`)
+this file to `/etc/nginx/conf.d/jellyfin.conf` to keep this repo and deployment
+up to date.
 
 ```
-ln -s ./envs/raspberry-pi/nginx/nginx.conf /etc/nginx/nginx.conf
+ln ~/envs/raspberry-pi/nginx/jellyfin.conf /etc/nginx/conf.d/jellyfin.conf
 ```
 
 ## Let's Encrypt
 
-Install certbot. Main website has great instructions.
+Install certbot. Main website has great instructions. You did the "just get a certificate" option instead of having certbot install the certs for you.
 https://certbot.eff.org/
