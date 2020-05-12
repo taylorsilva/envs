@@ -41,3 +41,8 @@ There is a `nginx.conf` in this repo. You should link (`ln -s`) this file to `/e
 ```
 ln -s ./envs/raspberry-pi/nginx/nginx.conf /etc/nginx/nginx.conf
 ```
+
+## Let's Encrypt
+
+Install certbot. Main website has great instructions.
+https://certbot.eff.org/
