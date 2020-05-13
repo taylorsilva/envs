@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # See knowlegebase article to config namecheap
 # https://www.namecheap.com/support/knowledgebase/article.aspx/43/11/how-do-i-set-up-a-host-for-dynamic-dns
 # make it executable `chmod +x ddns-update`
