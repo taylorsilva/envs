@@ -44,7 +44,11 @@ up to date.
 ln ~/envs/raspberry-pi/nginx/jellyfin.conf /etc/nginx/conf.d/jellyfin.conf
 ```
 
+After changing configs you should restart nginx.
+
 ## Let's Encrypt
 
-Install certbot. Main website has great instructions. You did the "just get a certificate" option instead of having certbot install the certs for you.
+Install certbot. Main website has great instructions. You let it update the
+nginx config for you. You can see the jellyfin.conf for where the certs are
+located. certbot should set the system up to renew the certs automatically.
 https://certbot.eff.org/
