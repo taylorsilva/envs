@@ -36,3 +36,8 @@ DNS resolver? Current system resolvers (from /etc/resolv.conf)
 Enable compression? no
 
 Customize encryption settings? no
+
+Client name: taylor
+Selected passwordless client
+
+Resulted in `/home/pi/taylor.ovpn` file
