@@ -1,4 +1,4 @@
-!/usr/bin/bash
+#!/usr/bin/bash
 # See knowlegebase article to config namecheap
 # https://www.namecheap.com/support/knowledgebase/article.aspx/43/11/how-do-i-set-up-a-host-for-dynamic-dns
 # make it executable `chmod +x ddns-update`
@@ -25,7 +25,10 @@ echo "DDNS-UPDATE: Public IP is: $ip, Updating IP..."
 
 host=thebox
 domain=taydev.net
-password=your-own-password-from-the-dns-manage-page
+DIR=`dirname $0`
+# password should be set in .ddns-passwrd file locally on the server
+# password=your-own-password-from-the-dns-manage-page
+source $DIR/.ddns-password
 response=$(curl -s "https://dynamicdns.park-your-domain.com/update?host=$host&domain=$domain&password=$password&ip=$ip")
 echo $response
 echo $ip > $last_ip_file
