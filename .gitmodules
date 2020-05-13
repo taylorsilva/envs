@@ -1,0 +1,3 @@
+[submodule "raspberry-pi/openvpn/openvpn-install"]
+	path = raspberry-pi/openvpn/openvpn-install
+	url = https://github.com/angristan/openvpn-install.git
