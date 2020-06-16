@@ -1,0 +1,21 @@
+[Unit]
+Description=Minecraft Server Daemon
+After=network-online.target
+
+[Service]
+Type=simple
+UMask=007
+
+# PaperMC/Spigot server
+ExecStart=/var/lib/minecraft/spigot-server/start.sh
+# bedrock edition
+#Environment="LD_LIBRARY_PATH=/var/lib/minecraft"
+#ExecStart=/var/lib/minecraft/bedrock_server
+
+Restart=on-failure
+
+# Time to wait before forcefully stopped.
+TimeoutStopSec=300
+
+[Install]
+WantedBy=multi-user.target
