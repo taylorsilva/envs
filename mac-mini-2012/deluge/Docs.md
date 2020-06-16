@@ -52,4 +52,13 @@ sudo systemctl [start/stop/restart/status] [deluged/deluge-web]
 
 ## Accessing the Web UI
 
+Web UI is available over port 8112. Password is in your password manager. It starts with no password and it'll prompt you to set one.
+
 ## Moving Files
+
+By default files are downloaded to `/var/lib/deluged`. You can move them using sudo or add your user accout to the `deluge` group:
+```
+sudo add user <user> deluge
+```
+
+Files need to follow a naming pattern as per the Jellyfin docs.
