@@ -4,6 +4,22 @@
 
 Following the official installation guide: https://jellyfin.org/docs/general/administration/installing.html#ubuntu
 
+## Enabling Hardware Accerlation
+
+This helps when multiple people are streaming and transcodin at the same time.
+
+Source: https://jellyfin.org/docs/general/administration/hardware-acceleration.html#configuring-vaapi-acceleration-on-debianubuntu-from-deb-packages
+
+Following the VAAPI option.
+
+On Ubuntu install `vainfo`
+```
+sudo apt install vainfo
+```
+and verify that `vainfo` displays info about the render driver.
+
+Following insturctions in the source after that.
+
 ## Managing the service
 
 Use `systemctl`.
