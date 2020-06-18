@@ -6,7 +6,7 @@ Following the official installation guide: https://jellyfin.org/docs/general/adm
 
 ## Enabling Hardware Accerlation
 
-This helps when multiple people are streaming and transcodin at the same time.
+This helps when multiple people are streaming and transcoding at the same time.
 
 Source: https://jellyfin.org/docs/general/administration/hardware-acceleration.html#configuring-vaapi-acceleration-on-debianubuntu-from-deb-packages
 
