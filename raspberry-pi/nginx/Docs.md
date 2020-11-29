@@ -41,7 +41,15 @@ this file to `/etc/nginx/conf.d/jellyfin.conf` to keep this repo and deployment
 up to date.
 
 ```
-ln ~/envs/raspberry-pi/nginx/jellyfin.conf /etc/nginx/conf.d/jellyfin.conf
+sudo ln ~/envs/raspberry-pi/nginx/thebox.taydev.net /etc/nginx/sites-available/thebox.taydev.net
+sudo ln ~/envs/raspberry-pi/nginx/dnd.taydev.net /etc/nginx/sites-available/dnd.taydev.net
+```
+
+You'll need to then create a symbolic link to enable the site:
+
+```
+sudo ln -s /etc/nginx/sites-available/thebox.taydev.net /etc/nginx/sites-enabled/thebox.taydev.net
+sudo ln -s /etc/nginx/sites-available/dnd.taydev.net /etc/nginx/sites-enabled/dnd.taydev.net
 ```
 
 After changing configs you should restart nginx.
