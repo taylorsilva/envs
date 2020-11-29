@@ -60,3 +60,8 @@ Install certbot. Main website has great instructions. You let it update the
 nginx config for you. You can see the individual site configs for where the
 certs are located. certbot should set the system up to renew the certs
 automatically.  https://certbot.eff.org/
+
+If you want to get a new cert run:
+```
+sudo certbot --nginx
+```
