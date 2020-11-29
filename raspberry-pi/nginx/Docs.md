@@ -34,18 +34,18 @@ Other `systemctl` commands include:
 
 ## Configuring nginx
 
-All nginx configuration is under `/etc/nginx/`. The main config file is `nginx.conf`.
+All nginx configuration is under `/etc/nginx/`. The main config file is
+`nginx.conf`. Nothing has been modified in that file.
 
-There is a `jellyfin.conf` in this repo. You should create a hard link (`ln`)
-this file to `/etc/nginx/conf.d/jellyfin.conf` to keep this repo and deployment
-up to date.
+There are files in this folder with domains as the file name. You should create
+hard links (`ln`) to these files in `/etc/nginx/sites-available/<file-name>`.
 
 ```
 sudo ln ~/envs/raspberry-pi/nginx/thebox.taydev.net /etc/nginx/sites-available/thebox.taydev.net
 sudo ln ~/envs/raspberry-pi/nginx/dnd.taydev.net /etc/nginx/sites-available/dnd.taydev.net
 ```
 
-You'll need to then create a symbolic link to enable the site:
+You'll need to then create a symbolic link (`ln -s`) to enable the site(s):
 
 ```
 sudo ln -s /etc/nginx/sites-available/thebox.taydev.net /etc/nginx/sites-enabled/thebox.taydev.net
@@ -57,6 +57,6 @@ After changing configs you should restart nginx.
 ## Let's Encrypt
 
 Install certbot. Main website has great instructions. You let it update the
-nginx config for you. You can see the jellyfin.conf for where the certs are
-located. certbot should set the system up to renew the certs automatically.
-https://certbot.eff.org/
+nginx config for you. You can see the individual site configs for where the
+certs are located. certbot should set the system up to renew the certs
+automatically.  https://certbot.eff.org/
