@@ -62,3 +62,16 @@ sudo add user <user> deluge
 ```
 
 Files need to follow a naming pattern as per the Jellyfin docs.
+
+## Problem with python3-libtorrent
+
+Issue is described here: [https://forum.deluge-torrent.org/viewtopic.php?f=7&t=55807&p=232588#p232588](https://forum.deluge-torrent.org/viewtopic.php?f=7&t=55807&p=232588#p232588)
+
+Solution is pin the libtorrent dependencies to an older version:
+```
+sudo apt-get install python3-libtorrent=1.1.5-1build1 libtorrent-rasterbar9=1.1.5-1build1
+
+```
+sudo apt-mark hold python3-libtorrent
+sudo apt-mark hold libtorrent-rasterbar9
+```
