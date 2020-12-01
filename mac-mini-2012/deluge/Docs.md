@@ -71,7 +71,6 @@ Solution is pin the libtorrent dependencies to an older version:
 ```
 sudo apt-get install python3-libtorrent=1.1.5-1build1 libtorrent-rasterbar9=1.1.5-1build1
 
-```
 sudo apt-mark hold python3-libtorrent
 sudo apt-mark hold libtorrent-rasterbar9
 ```
