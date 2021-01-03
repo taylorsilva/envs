@@ -5,7 +5,23 @@ Deluge is split into two components: a front-end and back-end.
 The front-end is the web ui component, called `deluge-web`
 The back-end is the torrent client that downloads and seeds the torrents, called `deluged`.
 
-## Installation
+## Installation (Docker)
+
+Simply bring up the docker-compose file.
+
+```
+docker-compose up -d
+```
+
+Some things to configure:
+- volumes: These can be any location really. I used the initial config path that the systemd installation used
+- PUID & GUID: these should match the owner/group of the `config` and `downloads` folder.
+
+## Installation (systemd - deprecated)
+
+_Deprecated: installing deluged via ppa repositories is broken so I switched to
+docker. Way easier to setup and NOT broken. Leaving this here as notes on how
+to use systemd._
 
 Sources:
 * https://deluge.readthedocs.io/en/latest/how-to/systemd-service.html
