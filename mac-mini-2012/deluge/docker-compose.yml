@@ -5,12 +5,12 @@ services:
     container_name: deluge
     network_mode: host
     environment:
-      - PUID=124 # id of deluge user. Should match the user/group of the volumes
-      - PGID=128
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/London
       - UMASK_SET=022 #optional
       - DELUGE_LOGLEVEL=error #optional
     volumes:
-      - /var/lib/deluge/.config/deluge:/config
-      - /var/lib/deluge/Downloads:/downloads
+      -  ./config:/config
+      - /home/taylor/Downloads:/downloads
     restart: unless-stopped
