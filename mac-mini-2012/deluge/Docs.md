@@ -17,6 +17,11 @@ Some things to configure:
 - volumes: These can be any location really. I used the initial config path that the systemd installation used
 - PUID & GUID: these should match the owner/group of the `config` and `downloads` folder.
 
+The proxy settings do not stay on all the time resulting in your IP address leaking. To resolve this install this plugin to change the proxy settings at the libtorrent level.
+
+1. Download the `.egg` file into the `config/plugins` directory: https://github.com/JoshDi/deluge-ltconfig/releases/tag/v0.3.1
+2. Restart deluge. Enable the plugin from the webui. A new prefernce section will appear. Enable `anonymous_mode` and `force_proxy`
+
 ## Installation (systemd - deprecated)
 
 _Deprecated: installing deluged via ppa repositories is broken so I switched to
