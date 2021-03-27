@@ -15,7 +15,7 @@ services:
       OPENVPN_USERNAME: username
       OPENVPN_PASSWORD: password
       LOCAL_NETWORK: 10.88.111.0/24
-      TRANSMISSION_WEB_UI: combustion
+      TRANSMISSION_WEB_UI: flood-for-transmission
       PUID: 1000
       GUID: 1000
       TZ: America/Toronto
@@ -26,4 +26,5 @@ services:
     ports:
       - 9091:9091
     image: haugene/transmission-openvpn
+    # https://haugene.github.io/docker-transmission-openvpn/
     restart: unless-stopped
