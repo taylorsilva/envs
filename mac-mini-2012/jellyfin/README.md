@@ -6,7 +6,7 @@
 docker-compose up -d
 ```
 
-If you're restoring from backup make sure the `./config` and `./cache` folders are the in the same directory as the `docker-compose.yml`.
+If you're restoring from a backup make sure the `./config` and `./cache` folders are the in the same directory as the `docker-compose.yml`.
 
 ## Enabling Hardware Accerlation
 
