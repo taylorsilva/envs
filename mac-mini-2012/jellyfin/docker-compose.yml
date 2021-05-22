@@ -3,9 +3,11 @@ services:
   jellyfin:
     image: jellyfin/jellyfin
     container_name: jellyfin
+    # uid and gid should match that of config and cache dir's
     user: 1000:1000
     group_add:
-      - 122
+      # should be id of the render group in /etc/group
+      - 109
     network_mode: "host"
     environment:
       # have to declare because I migrated from local installation to docker
