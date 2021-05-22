@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  transmission-openvpn:
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - /home/taylor/Downloads:/data
+    deploy:
+      resources:
+        limits:
+          cpus: 0.6
+    environment:
+      OPENVPN_PROVIDER: PIA
+      OPENVPN_CONFIG: ca_ontario
+      OPENVPN_USERNAME: ${OPENVPN_USERNAME}
+      OPENVPN_PASSWORD: ${OPENVPN_PASSWORD}
+      LOCAL_NETWORK: 10.88.111.0/24
+      TRANSMISSION_WEB_UI: flood-for-transmission
+      PUID: 1000
+      GUID: 1000
+      TZ: America/Toronto
+    logging:
+        driver: json-file
+        options:
+            max-size: 10m
+    ports:
+      - 9091:9091
+    image: haugene/transmission-openvpn
+    # https://haugene.github.io/docker-transmission-openvpn/
+    restart: unless-stopped
