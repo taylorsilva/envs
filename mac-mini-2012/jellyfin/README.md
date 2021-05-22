@@ -2,7 +2,11 @@
 
 ## Installation
 
-Following the official installation guide: https://jellyfin.org/docs/general/administration/installing.html#ubuntu
+```
+docker-compose up -d
+```
+
+If you're restoring from backup make sure the `./config` and `./cache` folders are the in the same directory as the `docker-compose.yml`.
 
 ## Enabling Hardware Accerlation
 
@@ -18,15 +22,7 @@ sudo apt install vainfo
 ```
 and verify that `vainfo` displays info about the render driver.
 
-Following insturctions in the source after that.
-
-## Managing the service
-
-Use `systemctl`.
-
-```
-sudo systemctl [start/stop/restart/status] jellyfin
-```
+Following insturctions in the jellyfin docs after that.
 
 ## Mounting Hard Drives
 
@@ -72,8 +68,8 @@ Add the following lines to `/etc/fstab`, modifying the partitions as needed.
 
 ```
 # Volumes for jellyfin
-/dev/sdb2 /media/VolumeOne exfat defaults,uid=1000,gid=127 0 0
-/dev/sdc2 /media/VolumeTwo exfat defaults,uid=1000,gid=127 0 0
+/dev/sdb2 /media/VolumeOne exfat defaults,uid=1000,gid=1000 0 0
+/dev/sdc2 /media/VolumeTwo exfat defaults,uid=1000,gid=1000 0 0
 ```
 
 Restart the server and the volumes should be mounted.
