@@ -12,8 +12,8 @@ services:
     environment:
       OPENVPN_PROVIDER: PIA
       OPENVPN_CONFIG: ca_ontario
-      OPENVPN_USERNAME: username
-      OPENVPN_PASSWORD: password
+      OPENVPN_USERNAME: ${OPENVPN_USERNAME}
+      OPENVPN_PASSWORD: ${OPENVPN_PASSWORD}
       LOCAL_NETWORK: 10.88.111.0/24
       TRANSMISSION_WEB_UI: flood-for-transmission
       PUID: 1000
