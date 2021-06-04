@@ -1,0 +1,5 @@
+domains:
+- host: thebox
+  domain: taydev.net
+
+password:
