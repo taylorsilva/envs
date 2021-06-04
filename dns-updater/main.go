@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	if len(os.Args) < 1 {
+	if len(os.Args) < 2 {
 		fmt.Println("must pass in one arg to location of config.yaml")
 		os.Exit(1)
 	}
