@@ -11,16 +11,19 @@ import (
 )
 
 func main() {
+	if len(os.Args) < 0 {
+		fmt.Println("must pass in one arg to location of config.yaml")
+		os.Exit(1)
+	}
 	var c config
-	c.loadConfig()
+	c.loadConfig(os.Args[0])
 	c.updateDomains()
 }
 
-func (c *config) loadConfig() []domain {
-	yamlFile, err := ioutil.ReadFile("config.yml")
+func (c *config) loadConfig(file string) {
+	yamlFile, err := ioutil.ReadFile(file)
 	noError(err)
 	yaml.Unmarshal(yamlFile, c)
-	return []domain{}
 }
 
 func (c *config) updateDomains() {
