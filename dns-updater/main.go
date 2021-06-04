@@ -27,7 +27,7 @@ func (c *config) updateDomains() {
 	currentIP := currentExternalIp()
 	for _, domain := range c.Domains {
 		if ipHasChanged(domain, currentIP) {
-			domain.update("", currentIP)
+			domain.update(c.Password, currentIP)
 		}
 	}
 }
