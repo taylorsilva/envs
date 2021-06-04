@@ -11,12 +11,12 @@ import (
 )
 
 func main() {
-	if len(os.Args) < 0 {
+	if len(os.Args) < 1 {
 		fmt.Println("must pass in one arg to location of config.yaml")
 		os.Exit(1)
 	}
 	var c config
-	c.loadConfig(os.Args[0])
+	c.loadConfig(os.Args[1])
 	c.updateDomains()
 }
 
