@@ -28,7 +28,7 @@ services:
       CONCOURSE_POSTGRES_USER: dev
       CONCOURSE_POSTGRES_PASSWORD: dev
       CONCOURSE_POSTGRES_DATABASE: concourse
-      CONCOURSE_EXTERNAL_URL: http://insidethebox.taydev.net:8080
+      CONCOURSE_EXTERNAL_URL: https://ci.taydev.net
       CONCOURSE_CLUSTER_NAME: ci
       CONCOURSE_ENABLE_PIPELINE_INSTANCES: "true"
       CONCOURSE_ENABLE_ACROSS_STEP: "true"
