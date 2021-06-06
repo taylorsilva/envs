@@ -68,3 +68,4 @@ services:
       VAULT_DEV_ROOT_TOKEN_ID: ${VAULT_DEV_ROOT_TOKEN_ID}
     cap_add:
     - IPC_LOCK
+    restart: unless-stopped
