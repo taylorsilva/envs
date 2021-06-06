@@ -49,11 +49,12 @@ services:
     volumes: ["./keys:/concourse-keys"]
     stop_signal: SIGUSR2
     environment:
+      CONCOURSE_RUNTIME: containerd
       CONCOURSE_TSA_PUBLIC_KEY: /concourse-keys/tsa_host_key.pub
       CONCOURSE_TSA_WORKER_PRIVATE_KEY: /concourse-keys/worker_key
       CONCOURSE_TSA_HOST: web:2222
       CONCOURSE_BIND_IP: 0.0.0.0
       CONCOURSE_BAGGAGECLAIM_BIND_IP: 0.0.0.0
       CONCOURSE_BAGGAGECLAIM_DRIVER: overlay
-      CONCOURSE_CONTAINERD_DNS_PROXY_ENABLE: "true"
+      CONCOURSE_CONTAINERD_DNS_SERVER: "1.1.1.1"
 
