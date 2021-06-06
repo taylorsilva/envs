@@ -20,7 +20,7 @@ services:
     - "./keys:/concourse-keys"
     environment:
       CONCOURSE_SESSION_SIGNING_KEY: /concourse-keys/session_signing_key
-      CONCOURSE_TSA_AUTHORIZED_KEYS: /concourse-keys/worker_key
+      CONCOURSE_TSA_AUTHORIZED_KEYS: /concourse-keys/worker_key.pub
       CONCOURSE_TSA_HOST_KEY: /concourse-keys/tsa_host_key
       CONCOURSE_LOG_LEVEL: error
       CONCOURSE_LOG_LEVEL: debug
