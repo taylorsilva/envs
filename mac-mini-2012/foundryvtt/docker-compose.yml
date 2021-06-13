@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  vtt:
+    image: node:16-alpine
+    command: /foundry/vtt/resources/app/main.js --dataPath=/foundry/data
+    restart: unless-stopped
+    volumes:
+    - "./vtt:/foundry/vtt"
+    - "./data:/foundry/data"
+    ports:
+    - "30000:30000"
+    user: "1000:1000"
