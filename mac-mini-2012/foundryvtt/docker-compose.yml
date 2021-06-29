@@ -11,3 +11,8 @@ services:
     ports:
     - "30000:30000"
     user: "1000:1000"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
+        max-file: "2"

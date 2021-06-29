@@ -41,6 +41,11 @@ services:
       CONCOURSE_ENABLE_REDACT_SECRETS: "true"
       CONCOURSE_GC_FAILED_GRACE_PERIOD: "12h"
       CONCOURSE_MAX_DAYS_TO_RETAIN_BUILD_LOGS: "60"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
+        max-file: "2"
 
   worker:
     image: concourse/concourse:latest
@@ -59,6 +64,11 @@ services:
       CONCOURSE_BAGGAGECLAIM_BIND_IP: 0.0.0.0
       CONCOURSE_BAGGAGECLAIM_DRIVER: overlay
       CONCOURSE_CONTAINERD_DNS_SERVER: "1.1.1.1"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
+        max-file: "2"
 
   vault:
     image: vault:latest
@@ -66,6 +76,11 @@ services:
     environment:
       VAULT_ADDR: "http://0.0.0.0:8200"
       VAULT_DEV_ROOT_TOKEN_ID: ${VAULT_DEV_ROOT_TOKEN_ID}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
+        max-file: "2"
     cap_add:
     - IPC_LOCK
     restart: unless-stopped

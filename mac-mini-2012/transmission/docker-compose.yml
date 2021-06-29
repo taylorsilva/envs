@@ -20,9 +20,10 @@ services:
       GUID: 1000
       TZ: America/Toronto
     logging:
-        driver: json-file
-        options:
-            max-size: 10m
+      driver: "json-file"
+      options:
+        max-size: "100M"
+        max-file: "2"
     ports:
       - 9091:9091
     image: haugene/transmission-openvpn
