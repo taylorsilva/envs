@@ -2,13 +2,21 @@ version: '3'
 
 services:
   db:
-    image: postgres:${POSTGRES_TAG:-latest}
+    image: postgres:latest
     shm_size: 1gb
     environment:
       POSTGRES_DB: concourse
       POSTGRES_USER: dev
       POSTGRES_PASSWORD: dev
+      PGDATA: "/var/lib/postgresql/data"
+    volumes:
+    - "./pgdata:/var/lib/postgresql/data"
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100M"
+        max-file: "2"
 
   web:
     image: concourse/concourse:latest
@@ -33,14 +41,12 @@ services:
       CONCOURSE_GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID}
       CONCOURSE_GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET}
       CONCOURSE_MAIN_TEAM_GITHUB_USER: taylorsilva
-      CONCOURSE_VAULT_URL: "http://vault:8200"
-      CONCOURSE_VAULT_CLIENT_TOKEN: ${VAULT_DEV_ROOT_TOKEN_ID}
       CONCOURSE_ENABLE_PIPELINE_INSTANCES: "true"
       CONCOURSE_ENABLE_ACROSS_STEP: "true"
       CONCOURSE_ENABLE_GLOBAL_RESOURCES: "true"
       CONCOURSE_ENABLE_REDACT_SECRETS: "true"
       CONCOURSE_GC_FAILED_GRACE_PERIOD: "12h"
-      CONCOURSE_MAX_DAYS_TO_RETAIN_BUILD_LOGS: "60"
+      CONCOURSE_MAX_DAYS_TO_RETAIN_BUILD_LOGS: "7"
     logging:
       driver: "json-file"
       options:
@@ -53,7 +59,8 @@ services:
     privileged: true
     restart: unless-stopped
     depends_on: [web]
-    volumes: ["./keys:/concourse-keys"]
+    volumes:
+    - "./keys:/concourse-keys"
     stop_signal: SIGUSR2
     environment:
       CONCOURSE_RUNTIME: containerd
@@ -69,18 +76,3 @@ services:
       options:
         max-size: "100M"
         max-file: "2"
-
-  vault:
-    image: vault:latest
-    command: server -dev
-    environment:
-      VAULT_ADDR: "http://0.0.0.0:8200"
-      VAULT_DEV_ROOT_TOKEN_ID: ${VAULT_DEV_ROOT_TOKEN_ID}
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "100M"
-        max-file: "2"
-    cap_add:
-    - IPC_LOCK
-    restart: unless-stopped
