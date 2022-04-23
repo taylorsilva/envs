@@ -30,6 +30,10 @@ resource "hcloud_server" "postgres" {
   depends_on = [
     hcloud_network_subnet.network-subnet
   ]
+
+  ssh_keys = [
+    hcloud_ssh_key.taylor.id
+  ]
 }
 
 resource "hcloud_server" "web-vault" {
@@ -46,6 +50,10 @@ resource "hcloud_server" "web-vault" {
   depends_on = [
     hcloud_network_subnet.network-subnet
   ]
+
+  ssh_keys = [
+    hcloud_ssh_key.taylor.id
+  ]
 }
 
 resource "hcloud_server" "worker" {
@@ -61,6 +69,10 @@ resource "hcloud_server" "worker" {
 
   depends_on = [
     hcloud_network_subnet.network-subnet
+  ]
+
+  ssh_keys = [
+    hcloud_ssh_key.taylor.id
   ]
 }
 
@@ -85,9 +97,23 @@ resource "hcloud_firewall" "web-firewall" {
       "::/0"
     ]
   }
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "22"
+    source_ips = [
+      "198.98.125.216/32"
+    ]
+  }
 }
 
 resource "hcloud_firewall_attachment" "web-firewall-attach" {
   firewall_id = hcloud_firewall.web-firewall.id
   server_ids  = [hcloud_server.web-vault.id]
+}
+
+resource "hcloud_ssh_key" "taylor" {
+  name       = "taylor"
+  public_key = file("~/.ssh/id_rsa.pub")
 }

@@ -5,17 +5,11 @@ provider "namecheap" {
 }
 
 resource "namecheap_domain_records" "taydev-net" {
-  domain     = "taydev.net"
-  mode       = "MERGE"
+  domain = "taydev.net"
+  mode   = "MERGE"
 
   record {
     hostname = "ci"
-    type     = "A"
-    address  = hcloud_server.web-vault.ipv4_address
-  }
-
-  record {
-    hostname = "vault"
     type     = "A"
     address  = hcloud_server.web-vault.ipv4_address
   }
