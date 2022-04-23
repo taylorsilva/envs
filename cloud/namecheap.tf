@@ -1,15 +1,22 @@
-terraform {
-  required_providers {
-    namecheap = {
-      source = "namecheap/namecheap"
-      version = ">= 2.0.0"
-    }
-  }
-}
-
 provider "namecheap" {
   user_name = var.nc_user
-  api_user = var.nc_api_user
-  api_key = var.nc_api_key
+  api_user  = var.nc_api_user
+  api_key   = var.nc_api_key
 }
 
+resource "namecheap_domain_records" "taydev-net" {
+  domain     = "taydev.net"
+  mode       = "MERGE"
+
+  record {
+    hostname = "ci"
+    type     = "A"
+    address  = hcloud_server.web-vault.ipv4_address
+  }
+
+  record {
+    hostname = "vault"
+    type     = "A"
+    address  = hcloud_server.web-vault.ipv4_address
+  }
+}

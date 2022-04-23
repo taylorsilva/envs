@@ -1,11 +1,20 @@
-To start, set your personal access token (from your personal vault)
+To start, set the necessary vars
 
 ```
-export DO_PAT="your_personal_access_token"
+export TF_VAR_nc_user=
+export TF_VAR_nc_api_user=
+export TF_VAR_nc_api_key=
+export TF_VAR_hcloud_token=
 ```
 
 then do terraform commands:
 
 ```
-
+terraform init
+```
+```
+terraform plan
+```
+```
+terraform apply
 ```
