@@ -15,3 +15,4 @@ services:
     ports:
       - '27016:27016/udp'
       - '27015:27015/udp'
+    restart: always
