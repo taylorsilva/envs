@@ -6,7 +6,7 @@ services:
     network_mode: bridge
     environment:
       - TZ=America/Toronto
-      - SERVERNAME=veganvamps
+      - SERVERNAME=bloodmooners
       - GAMEPORT=27015
       - QUERYPORT=27016
     volumes:
