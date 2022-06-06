@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  valheim:
+    image: ghcr.io/lloesche/valheim-server
+    cap_add:
+      - sys_nice
+    volumes:
+      - './gamedata:/config'
+      - $HOME/valheim-server/data:/opt/valheim
+      - '/home/taylor/.local/share/Steam/steamapps/common/Valheim dedicated server:/opt/valheim'
+    ports:
+      - "2456-2457:2456-2457/udp" # game port
+      - "9001:9001/tcp"  # supervisor port
+    environment:
+      - SERVER_NAME=The Viking Box
+      - WORLD_NAME=Dedicated
+      - SERVER_PASS=warzone
+      - SERVER_PUBLIC=true
+    restart: always
+    stop_grace_period: 2m
