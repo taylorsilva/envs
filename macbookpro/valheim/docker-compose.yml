@@ -13,9 +13,10 @@ services:
       - "2456-2457:2456-2457/udp" # game port
       - "9001:9001/tcp"  # supervisor port
     environment:
-      - SERVER_NAME=${SERVER_NAME}
-      - WORLD_NAME=Dedicated
-      - SERVER_PASS=${SERVER_PASS}
-      - SERVER_PUBLIC=true
+      SERVER_NAME: ${SERVER_NAME}
+      SERVER_PASS: ${SERVER_PASS}
+      WORLD_NAME: Dedicated
+      SERVER_PUBLIC: true
+      VALHEIM_PLUS: true
     restart: always
     stop_grace_period: 2m
