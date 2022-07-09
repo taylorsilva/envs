@@ -8,7 +8,8 @@ services:
     group_add:
       # should be id of the render group in /etc/group
       - 109
-    network_mode: "host"
+    ports:
+      - "8096:8096"
     environment:
       # have to declare because I migrated from local installation to docker
       JELLYFIN_CACHE_DIR: /cache
