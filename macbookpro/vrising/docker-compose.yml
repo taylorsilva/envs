@@ -1,18 +1,11 @@
-version: '3.3'
+version: "3"
+
 services:
   vrising:
+    image: bjg96/vrising-server:latest
     container_name: vrising
-    image: trueosiris/vrising
-    network_mode: bridge
-    environment:
-      - TZ=America/Toronto
-      - SERVERNAME=bloodmooners
-      - GAMEPORT=27015
-      - QUERYPORT=27016
     volumes:
-      - '/home/taylor/.local/share/Steam/steamapps/common/VRisingDedicatedServer:/mnt/vrising/server:rw'
-      - './gamedata:/mnt/vrising/persistentdata:rw'
+      - ./gamedata:/data
     ports:
-      - '27016:27016/udp'
-      - '27015:27015/udp'
-    restart: always
+      - 27015:27015/udp
+      - 27016:27016/udp
