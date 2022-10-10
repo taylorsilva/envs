@@ -1,0 +1,13 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+packages:
+  - ufw
+  - postgres
+runcmd:
+  - ufw enable
+  - ufw allow 22
+  - mkdir -p /run/tmp
+  - curl https://packages.hetzner.com/hcloud/deb/hc-utils_0.0.3-1_all.deb -o /run/tmp/hc-utils_0.0.3-1_all.deb -s
+  - apt install /run/tmp/hc-utils_0.0.3-1_all.deb
+  - rm /run/tmp/hc-utils_0.0.3-1_all.deb
