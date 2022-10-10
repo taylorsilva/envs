@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -euo pipefail
+
 # See knowlegebase article to config namecheap
 # https://www.namecheap.com/support/knowledgebase/article.aspx/43/11/how-do-i-set-up-a-host-for-dynamic-dns
 # setup cronjob for every 15 minutes `crontab -e`
@@ -13,11 +16,11 @@ if [ "$ip" == "$last_ip" ]; then
 	exit 0
 fi
 
-echo "DDNS-UPDATE: LOCAL IP is: $ip, Updating IP..."
+echo "DDNS-UPDATE: Local IP is: $ip, Updating IP..."
 
-host=insidethebox
-domain=taydev.net
-DIR=`dirname $0`
+host="insidethebox"
+domain="taydev.net"
+DIR=$(dirname $0)
 # password should be set in .ddns-passwrd file locally on the server
 # password=your-own-password-from-the-dns-manage-page
 source $DIR/.ddns-password
