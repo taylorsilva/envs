@@ -10,7 +10,7 @@ set -euo pipefail
 last_ip_file="/tmp/last_ip"
 last_ip=$(cat $last_ip_file)
 echo "DDNS-UPDATE: OK, Getting public IP address"
-ip=$(hostname -I | cut -d' ' -f1)
+ip=$(curl https://www.taylorsilva.com/ip.php)
 if [ "$ip" == "$last_ip" ]; then
 	echo "IP still the same, no need to update."
 	exit 0
@@ -18,7 +18,7 @@ fi
 
 echo "DDNS-UPDATE: Local IP is: $ip, Updating IP..."
 
-host="insidethebox"
+host="thebox"
 domain="taydev.net"
 DIR=$(dirname $0)
 # password should be set in .ddns-passwrd file locally on the server
