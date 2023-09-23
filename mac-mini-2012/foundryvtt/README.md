@@ -12,5 +12,5 @@ the zip file inside `vtt/` and run `unzip foundry.zip`.
 
 The software will prompt and do upgrades via the web UI automatically. Sadly
 after updating the `./vtt/resources/app/main.js` will not be executable. You
-will need to ssh and `chmod +x ./vtt/resources/app/main.js` and then `sudo
-docker-compose restart` to get the server back up.
+will need to ssh onto this servdr and `chmod +x ./vtt/resources/app/main.js`
+then `sudo docker-compose restart` to get the server back up.
