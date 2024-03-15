@@ -56,12 +56,20 @@ After changing configs you should restart nginx.
 
 ## Let's Encrypt
 
-Install certbot. Main website has great instructions. You let it update the
-nginx config for you. You can see the individual site configs for where the
-certs are located. certbot should set the system up to renew the certs
-automatically.  https://certbot.eff.org/
+Install the `certbot` cli as per instructions from: https://certbot.eff.org/
 
-If you want to get a new cert run:
+Once installed you should setup the symlinks into the `/etc/nginx/`
+directories. Before running `certbot`, remove the `server` block with the SSL
+certificates in it from each site you want to configure. Then run:
+
 ```
 sudo certbot --nginx
+```
+
+and follow the prompts to generate new certificates or renew.
+
+Verify the certs will autorenew by running:
+
+```
+sudo certbot renew --dry-run
 ```
