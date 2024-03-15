@@ -9,3 +9,9 @@ domains:
 
 password:
 ```
+
+Setup a crontab: `crontab -e`
+
+```
+*/15 * * * * /home/taylor/envs/dns-updater/dns-updater /home/taylor/envs/dns-updater/config.yml > /dev/null
+```
