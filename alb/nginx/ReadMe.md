@@ -41,8 +41,8 @@ There are files in this folder with domains as the file name. You should create
 hard links (`ln`) to these files in `/etc/nginx/sites-available/<file-name>`.
 
 ```
-sudo ln ~/envs/raspberry-pi/nginx/thebox.taydev.net /etc/nginx/sites-available/thebox.taydev.net
-sudo ln ~/envs/raspberry-pi/nginx/dnd.taydev.net /etc/nginx/sites-available/dnd.taydev.net
+sudo ln ~/envs/alb/nginx/thebox.taydev.net /etc/nginx/sites-available/thebox.taydev.net
+sudo ln ~/envs/alb/nginx/dnd.taydev.net /etc/nginx/sites-available/dnd.taydev.net
 ```
 
 You'll need to then create a symbolic link (`ln -s`) to enable the site(s):
