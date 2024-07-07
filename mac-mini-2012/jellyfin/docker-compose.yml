@@ -1,4 +1,3 @@
-version: "3.5"
 services:
   jellyfin:
     image: jellyfin/jellyfin
@@ -26,7 +25,6 @@ services:
       - /dev/dri/card0:/dev/dri/card0
     restart: "unless-stopped"
     logging:
-      driver: "json-file"
+      driver: "local"
       options:
-        max-size: "100M"
-        max-file: "2"
+        max-size: "100m"

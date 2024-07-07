@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   db:
     image: postgres:latest
@@ -13,10 +11,9 @@ services:
     - "./pgdata:/var/lib/postgresql/data"
     restart: unless-stopped
     logging:
-      driver: "json-file"
+      driver: "local"
       options:
-        max-size: "100M"
-        max-file: "2"
+        max-size: "100m"
 
   web:
     image: concourse/concourse:latest
@@ -48,10 +45,9 @@ services:
       CONCOURSE_GC_FAILED_GRACE_PERIOD: "12h"
       CONCOURSE_MAX_DAYS_TO_RETAIN_BUILD_LOGS: "7"
     logging:
-      driver: "json-file"
+      driver: "local"
       options:
-        max-size: "100M"
-        max-file: "2"
+        max-size: "100m"
 
   worker:
     image: concourse/concourse:latest
@@ -72,7 +68,6 @@ services:
       CONCOURSE_BAGGAGECLAIM_DRIVER: overlay
       CONCOURSE_CONTAINERD_DNS_SERVER: "1.1.1.1"
     logging:
-      driver: "json-file"
+      driver: "local"
       options:
-        max-size: "100M"
-        max-file: "2"
+        max-size: "100m"
