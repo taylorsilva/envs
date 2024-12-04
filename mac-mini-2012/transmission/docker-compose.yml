@@ -1,5 +1,7 @@
 services:
   transmission-openvpn:
+    # https://haugene.github.io/docker-transmission-openvpn/
+    image: haugene/transmission-openvpn
     cap_add:
       - NET_ADMIN
     volumes:
@@ -24,6 +26,6 @@ services:
         max-size: "100m"
     ports:
       - 9091:9091
-    image: haugene/transmission-openvpn
-    # https://haugene.github.io/docker-transmission-openvpn/
+    devices: #Fix permission issues with IPv6
+      - /dev/net/tun:/dev/net/tun
     restart: unless-stopped
