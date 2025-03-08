@@ -1,6 +1,6 @@
 services:
   vtt:
-    image: node:18-alpine
+    image: node:20-alpine
     command: /foundry/vtt/resources/app/main.js --dataPath=/foundry/data
     restart: unless-stopped
     volumes:
