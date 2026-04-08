@@ -1,11 +1,12 @@
 services:
   transmission-openvpn:
     # https://haugene.github.io/docker-transmission-openvpn/
-    image: haugene/transmission-openvpn
+    image: haugene/transmission-openvpn:latest
     cap_add:
       - NET_ADMIN
     volumes:
-      - /home/taylor/Downloads:/data
+      - '/home/taylor/Downloads:/data'
+      - './config:/config'
     deploy:
       resources:
         limits:
@@ -20,6 +21,7 @@ services:
       PUID: 1000
       GUID: 1000
       TZ: America/Toronto
+      LOG_TO_STDOUT: true
     logging:
       driver: "local"
       options:
