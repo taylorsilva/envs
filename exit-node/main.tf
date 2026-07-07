@@ -1,15 +1,16 @@
 locals {
+  hostname           = "node"
   aws_region         = ""
   vpc_id             = "vpc-"
   subnet_id          = "subnet-"
-  tailscale_auth_key = "tskey-auth-GENERATE-KEY"
+  tailscale_auth_key = "tskey-auth-"
 }
 
 module "ubuntu-tailscale-client" {
   source              = "github.com/tailscale/terraform-cloudinit-tailscale"
   auth_key            = local.tailscale_auth_key
   enable_ssh          = true
-  hostname            = "sydney"
+  hostname            = local.hostname
   advertise_exit_node = true
 }
 
